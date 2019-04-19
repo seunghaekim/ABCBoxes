@@ -8,7 +8,7 @@ int arrayLength(int sizeofArray) {
 }
 
 Servo myservo;
-int servoAttach = 85;
+int servoSpeed = 85;
 int servoPin = 5;
 
 bool STATUS = false;
@@ -38,7 +38,7 @@ void setup() {
 
 void loop() {
   int enter;
-  myservo.attach(servoAttach);
+  myservo.write(servoSpeed);
   
   if(STATUS == false){
     keyData = getKeyAction(keyData);
@@ -73,10 +73,10 @@ void loop() {
 
   if(STATUS == true){
     fail = 0;
-    servoAttach = 0;
+    servoSpeed = 0;
     enter = getKeyState(keyEnter);
     if(enter != 0) {
-      servoAttach = 85;
+      servoSpeed = 85;
       keyData = "";
       STATUS = false;
       return;
